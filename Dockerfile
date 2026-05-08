@@ -23,9 +23,9 @@ if [ -n "$ROOT_PASSWORD" ]; then\n\
 echo "root:$ROOT_PASSWORD" | chpasswd\n\
 fi\n\
 /usr/sbin/sshd -E /var/log/sshd.log\n\
-exec shellinaboxd -t -p 10000 --no-beep --disable-peer-check -s /:LOGIN' > /entrypoint.sh \
+exec shellinaboxd -t -p 8080 --no-beep --disable-peer-check -s /:LOGIN' > /entrypoint.sh \
     && chmod +x /entrypoint.sh
 
-EXPOSE 10000 22
+EXPOSE 8080 22
 
 ENTRYPOINT ["/entrypoint.sh"]
